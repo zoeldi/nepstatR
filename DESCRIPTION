@@ -1,5 +1,5 @@
 Package: nepstatR
-Title: Utilities for the Poplation Statistics Department of the HCSO
+Title: R package with useful functions for the Poplation Statistics Department of the HCSO
 Version: 0.0.0.9000
 Authors@R: 
     person("Laszlo Zoltan", "Zöldi", , "laszlozoldi@gmail.com", role = c("aut", "cre"))
