@@ -2,4 +2,5 @@
 
 export(chunkwise)
 export(nepstat_test)
+export(read_ora)
 export(scan_n_lines)
