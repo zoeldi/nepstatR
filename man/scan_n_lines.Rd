@@ -7,14 +7,16 @@
 scan_n_lines(file)
 }
 \arguments{
-\item{file}{The name of the text file to be scanned}
+\item{file}{The path and name of the text file to be scanned.}
 }
 \value{
 Integer of row number
 }
 \description{
-Fast number of rows in text file
+This function uses the windows cmd to count the number of rows in a text file (csv, txt).
+Linux and Mac OS are not supported yet. The text file should be on the local computer, the function
+will not work on files from remote servers.
 }
 \examples{
-scan_n_lines("test.csv")
+scan_n_lines("C:/Users/USERNAME/Desktop/test.csv")
 }
