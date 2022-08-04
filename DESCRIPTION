@@ -11,10 +11,7 @@ RoxygenNote: 7.2.1
 URL: https://github.com/zoeldi/nepstatR
 BugReports: https://github.com/zoeldi/nepstatR/issues
 Imports: 
-<<<<<<< HEAD
     data.table
-=======
     DBI,
     ROracle,
     rstudioapi
->>>>>>> e19b1341fc1824d6e896af0040ea8e8ce45ecb38
