@@ -13,9 +13,9 @@ read_ora <- function(dbname = 'EMERALD',
                      password = rstudioapi::askForPassword(prompt = "Please enter your Oracle password...")){
 
   # Sets system time to hungarian
-  Sys.setenv(NLS_LANG = "Hungarian_Hungary.EE8MSWIN1250")
-  Sys.setenv(TZ = "GMT")
-  Sys.setenv(ORA_SDTZ = "GMT")
+  Sys.setenv(NLS_LANG = "Hungarian_Hungary.AL32UTF8")
+  Sys.setenv(TZ = "HUNGARY")
+  Sys.setenv(ORA_SDTZ = "HUNGARY")
 
   # Establishes oracle connection
   oracon =
