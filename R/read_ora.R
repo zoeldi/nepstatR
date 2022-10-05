@@ -14,8 +14,8 @@ read_ora <- function(dbname = 'EMERALD',
 
   # Sets system time to hungarian
   Sys.setenv(NLS_LANG = "Hungarian_Hungary.AL32UTF8")
-  Sys.setenv(TZ = "UTC")
-  Sys.setenv(ORA_SDTZ = "UTC")
+  Sys.setenv(TZ = "Europe/Budapest")
+  Sys.setenv(ORA_SDTZ = "Europe/Budapest")
 
   # Establishes oracle connection
   oracon =
