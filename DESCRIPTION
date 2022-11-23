@@ -13,5 +13,6 @@ BugReports: https://github.com/zoeldi/nepstatR/issues
 Imports: 
     data.table,
     DBI,
-    ROracle,
-    rstudioapi
+    utils
+Suggests:
+    ROracle

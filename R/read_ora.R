@@ -12,41 +12,45 @@ read_ora <- function(dbname = 'EMERALD',
                      username = Sys.getenv("USERNAME"),
                      password = rstudioapi::askForPassword(prompt = "Please enter your Oracle password...")){
 
-  # Sets system time to hungarian
-  Sys.setenv(NLS_LANG = "Hungarian_Hungary.AL32UTF8")
-  Sys.setenv(TZ = "Europe/Budapest")
-  Sys.setenv(ORA_SDTZ = "Europe/Budapest")
+  # Error if ROracle is not installed. Suggest installation.
+  if(!('ROracle' %in% utils::installed.packages())) {
+    stop('It seems that the \'ROracle\' package is not installed on your computer. Try calling \'install_ROracle()\' first!')
+  }
+  else {
+    # Sets system time to hungarian
+    Sys.setenv(NLS_LANG = "Hungarian_Hungary.AL32UTF8")
+    Sys.setenv(TZ = "Europe/Budapest")
+    Sys.setenv(ORA_SDTZ = "Europe/Budapest")
 
-  # Establishes oracle connection
-  oracon =
-    tryCatch(
-      expr = {
-        ROracle::dbConnect(DBI::dbDriver('Oracle'),
-                           dbname = dbname,
-                           username = username,
-                           password = password
-        )
-      },
+    # Establishes oracle connection
+    oracon =
+      tryCatch(
+        expr = {
+          ROracle::dbConnect(DBI::dbDriver('Oracle'),
+                             dbname = dbname,
+                             username = username,
+                             password = password
+          )
+        },
 
-      error = function(e){
-        rstudioapi::showDialog("Oarcle connection",
-                               "Uuups... Something went wrong. Try to reconnect!")
-        return(NULL)
-      },
+        # Error handling
+        error = function(e){
+          stop(e)
+          return(NULL)
+        },
 
-      warning = function(w){
-        rstudioapi::showDialog("Oarcle connection",
-                               "Uuups... Something went wrong. Try to reconnect!")
-        return(NULL)
-      }
-    )
+        # Warning handling
+        warning = function(w){
+          stop(w)
+          return(NULL)
+        }
+      )
 
-  if(!is.null(oracon)){
-    rstudioapi::showDialog("Oarcle connection",
-                           paste("<b>Welcome", username, "!</b><p>",
-                           "You are connected to the", dbname, "database. Don't forget to
-                               disconnect before leaving R. Have a nice query!"))
-    return(oracon)
+    # Return oracon with message
+    if(!is.null(oracon)){
+      message(paste("Welcome", username, "!\n", "You are connected to the", dbname, "database. Don't forget to disconnect before leaving R. Have a nice query!"))
+      return(oracon)
 
+    }
   }
 }
