@@ -32,7 +32,7 @@ install_ROracle <- function(){
     Sys.setenv('OCI_INC' = paste0(SDKexdir, '/instantclient_11_2/sdk/include'))
 
     # Install ROracle
-    utils::install.packages('ROracle')
+    utils::install.packages('ROracle', type = 'source')
 
     # Remove temporary folder from Desktop
     unlink(SDKexdir, recursive = TRUE)
