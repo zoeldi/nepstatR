@@ -13,7 +13,7 @@ read_ora <- function(dbname = 'EMERALD',
                      password = rstudioapi::askForPassword(prompt = "Please enter your Oracle password...")){
 
   # Error if ROracle is not installed. Suggest installation.
-  if(!('ROracle' %in% utils::installed.packages())) {
+  if(!('ROracle' %in% rownames(utils::installed.packages()))) {
     stop('It seems that the \'ROracle\' package is not installed on your computer. Try calling \'install_ROracle()\' first!')
   }
   else {

@@ -11,7 +11,7 @@ install_ROracle <- function(){
     stop('The Oracle Instant Client driver is missing from your computer. Contact your IT-Admin for
     the installation and try again!')
   }
-  else if('ROracle' %in% utils::installed.packages()){
+  else if('ROracle' %in% rownames(utils::installed.packages())){
     stop('It seems that \'ROracle\' is already installed on your computer')
   }
   else {
